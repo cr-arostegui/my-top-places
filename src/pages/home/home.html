@@ -12,7 +12,9 @@
 </ion-header>
 
 <ion-content padding>
-  <ul>
-    <li *ngFor="let place of places">{{ place.title }}</li>
-  </ul>
+    <ion-list>
+      <ion-item *ngFor="let place of places">
+        {{ place.title }}
+      </ion-item>
+    </ion-list>
 </ion-content>
