@@ -1,20 +1,19 @@
 import { Component } from '@angular/core';
 
+import { PlacesService } from '../../services/places.service';
+
 @Component({
   selector: 'page-new-place',
   templateUrl: 'new-place.html',
 })
 export class NewPlacePage {
 
-  constructor() {
-  }
+  constructor(
+    private placesService: PlacesService
+  ) {}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad NewPlacePage');
-  }
-
-  onAddPlace() {
-
+  onAddPlace(newPlace: {title: string}) {
+    this.placesService.addPlace(newPlace);
   }
 
 }

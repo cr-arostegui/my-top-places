@@ -8,6 +8,8 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { NewPlacePage } from '../pages/new-place/new-place';
 
+import { PlacesService } from '../services/places.service';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -27,7 +29,8 @@ import { NewPlacePage } from '../pages/new-place/new-place';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    PlacesService
   ]
 })
 export class AppModule {}
