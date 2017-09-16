@@ -1,12 +1,18 @@
 <ion-header>
-
   <ion-navbar>
-    <ion-title>new-place</ion-title>
+    <ion-title>New Place</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
-  <p>New place page</p>
+    <form (ngSubmit)="onAddPlace(f.value)" #f="ngForm">
+      <ion-list>  
+        <ion-item>
+          <ion-label fixed>Title</ion-label>
+          <ion-input name="title" type="text" ngModel required></ion-input>
+        </ion-item>
+      </ion-list>
+      <button ion-button block type="submit" [disabled]="!f.valid">Add Place</button>
+    </form>
 </ion-content>
