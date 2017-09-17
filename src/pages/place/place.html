@@ -8,5 +8,8 @@
 
 
 <ion-content padding>
+  <agm-map [latitude]="lat" [longitude]="lng">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map>
   <button ion-button block (click)="onDismiss()">Dismiss</button>
 </ion-content>

@@ -6,12 +6,14 @@ import { PlacesService } from '../../services/places.service';
 import { NewPlacePage } from '../new-place/new-place';
 import { PlacePage } from '../place/place';
 
+import { Place } from '../../model/place.model';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  places: {title: string}[] = [];
+  places: Place[] = [];
 
   constructor(
     public navCtrl: NavController,
@@ -30,8 +32,8 @@ export class HomePage {
     this.navCtrl.push(NewPlacePage);
   }
 
-  onOpenPlace(){
-    this.modalCtrl.create(PlacePage).present();
+  onOpenPlace(place: Place){
+    this.modalCtrl.create(PlacePage, place).present();
   }
 
 }

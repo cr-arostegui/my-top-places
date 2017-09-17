@@ -10,7 +10,7 @@ import { PlacesService } from '../../services/places.service';
 })
 export class NewPlacePage {
 
-  location: any;
+  location: {lat: number, lng: number} = {lat: 0, lng: 0};
 
   constructor(
     private navCtrl: NavController,
@@ -19,14 +19,16 @@ export class NewPlacePage {
   ) {}
 
   onAddPlace(newPlace: {title: string}) {
-    this.placesService.addPlace(newPlace);
+    this.placesService.addPlace({title: newPlace.title, location: this.location});
     this.navCtrl.pop();
   }
 
   onLocateUser(){
     this.geolocation.getCurrentPosition()
       .then(location => {
-        this.location = location;
+        console.log('Location  fetched successfully.');
+        this.location.lat = location.coords.latitude;
+        this.location.lng = location.coords.longitude;
       })
       .catch(() => console.log('An error ocurred'));
   }

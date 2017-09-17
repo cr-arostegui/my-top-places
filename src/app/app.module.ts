@@ -7,6 +7,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { Geolocation } from '@ionic-native/geolocation';
 
 import { PlacesService } from '../services/places.service';
+import { AgmCoreModule } from '@agm/core';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -23,7 +24,10 @@ import { PlacePage } from '../pages/place/place';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAyZlV8RskTSspmBa0lzcTa4FMU2ODTCNI'
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
