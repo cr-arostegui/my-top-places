@@ -16,7 +16,7 @@
       <ion-item *ngFor="let place of places">
         <p (click)="onOpenPlace(place)">{{ place.title }}</p>
         <button ion-button clear item-end icon-only (click)="onDeletePlace(place)">
-            <ion-icon name="md-trash"></ion-icon>
+            <ion-icon name="trash"></ion-icon>
         </button>
       </ion-item>
     </ion-list>

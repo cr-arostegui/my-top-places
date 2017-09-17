@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController } from 'ionic-angular';
+import { NavController, ModalController, AlertController } from 'ionic-angular';
 
 import { PlacesService } from '../../services/places.service';
 
@@ -18,7 +18,8 @@ export class HomePage {
   constructor(
     public navCtrl: NavController,
     private modalCtrl: ModalController,
-    private placeService: PlacesService
+    private placeService: PlacesService,
+    private alertCtrl: AlertController
   ) {}
 
   ionViewWillEnter(){
@@ -37,8 +38,24 @@ export class HomePage {
   }
 
   onDeletePlace(place: Place){
-    this.placeService.deletePlace(place);
-    this.ionViewWillEnter();
+    let confirm = this.alertCtrl.create({
+      title: `Are you sure you want to delete ${place.title}?`,
+      buttons: [
+        {
+          text: 'Disagree',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Agree',
+          handler: () => {        
+            this.placeService.deletePlace(place);
+            this.ionViewWillEnter();
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
-
 }
