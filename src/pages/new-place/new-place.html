@@ -16,9 +16,4 @@
       <button ion-button block type="submit" [disabled]="!f.valid">Add Place</button>
     </form>
     <button ion-button block (click)="onLocateUser()">Locate me</button>
-    <ion-grid>
-      <ion-row>
-        <ion-col>Your location: {{ location?.coords.latitude }} / {{ location?.coords.longitude }}</ion-col>
-      </ion-row>
-    </ion-grid>
 </ion-content>

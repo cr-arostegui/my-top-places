@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
 
 import { PlacesService } from '../../services/places.service';
 
 import { NewPlacePage } from '../new-place/new-place';
+import { PlacePage } from '../place/place';
 
 @Component({
   selector: 'page-home',
@@ -14,6 +15,7 @@ export class HomePage {
 
   constructor(
     public navCtrl: NavController,
+    private modalCtrl: ModalController,
     private placeService: PlacesService
   ) {}
 
@@ -26,6 +28,10 @@ export class HomePage {
 
   onLoadNewPlace(){
     this.navCtrl.push(NewPlacePage);
+  }
+
+  onOpenPlace(){
+    this.modalCtrl.create(PlacePage).present();
   }
 
 }
