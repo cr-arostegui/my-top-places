@@ -4,35 +4,44 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
+import { Geolocation } from '@ionic-native/geolocation';
 
 import { PlacesService } from '../services/places.service';
+import { AgmCoreModule } from '@agm/core';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { NewPlacePage } from '../pages/new-place/new-place';
+import { PlacePage } from '../pages/place/place';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    NewPlacePage
+    NewPlacePage,
+    PlacePage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAyZlV8RskTSspmBa0lzcTa4FMU2ODTCNI'
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    NewPlacePage
+    NewPlacePage,
+    PlacePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    PlacesService
+    PlacesService,
+    Geolocation
   ]
 })
 export class AppModule {}
