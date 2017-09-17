@@ -36,4 +36,9 @@ export class HomePage {
     this.modalCtrl.create(PlacePage, place).present();
   }
 
+  onDeletePlace(place: Place){
+    this.placeService.deletePlace(place);
+    this.ionViewWillEnter();
+  }
+
 }

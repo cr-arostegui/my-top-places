@@ -7,6 +7,7 @@ import { ViewController, NavParams } from 'ionic-angular';
 })
 export class PlacePage {
   
+  title: string = 'Place';
   lat: number = 51.678418;
   lng: number = 7.809007;
 
@@ -14,6 +15,7 @@ export class PlacePage {
     private viewCtrl: ViewController,
     private navParms: NavParams
   ) {
+    this.title = this.navParms.data.title;
     this.lat = this.navParms.data.location.lat;
     this.lng = this.navParms.data.location.lng;
   }

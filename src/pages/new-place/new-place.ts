@@ -19,18 +19,15 @@ export class NewPlacePage {
   ) {}
 
   onAddPlace(newPlace: {title: string}) {
-    this.placesService.addPlace({title: newPlace.title, location: this.location});
-    this.navCtrl.pop();
-  }
-
-  onLocateUser(){
     this.geolocation.getCurrentPosition()
-      .then(location => {
-        console.log('Location  fetched successfully.');
-        this.location.lat = location.coords.latitude;
-        this.location.lng = location.coords.longitude;
-      })
-      .catch(() => console.log('An error ocurred'));
+    .then(location => {
+      console.log('Location  fetched successfully.');
+      this.location.lat = location.coords.latitude;
+      this.location.lng = location.coords.longitude;
+      this.placesService.addPlace({title: newPlace.title, location: this.location});
+      this.navCtrl.pop();
+    })
+    .catch(() => console.log('An error ocurred'));
   }
 
 }

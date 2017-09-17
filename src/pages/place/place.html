@@ -1,14 +1,14 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Place</ion-title>
+    <ion-title>{{ title }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <agm-map [latitude]="lat" [longitude]="lng">
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="20">
     <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
   </agm-map>
   <button ion-button block (click)="onDismiss()">Dismiss</button>

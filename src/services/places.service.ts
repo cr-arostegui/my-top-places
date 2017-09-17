@@ -14,6 +14,14 @@ export class PlacesService {
     this.storage.set('places',this.places);
   }
 
+  deletePlace(placeToDelete: Place){
+    this.storage.set('places', this.places.filter(place => {
+      if(placeToDelete.title !== place.title) {
+        return place;
+      }
+    }));
+  }
+
   getPlaces(): Promise<Place[]>{
     return this.storage.get('places')
       .then(places => {
