@@ -19,17 +19,21 @@ export class NewPlacePage {
     private loadingCtrl: LoadingController
   ) {}
 
-  onAddPlace(newPlace: {title: string}) {
+  onAddPlace(newPlace: {title: string, description: string}) {
     let loader = this.loadingCtrl.create({
       content: "Please wait...",
     });
     loader.present();
     this.geolocation.getCurrentPosition()
     .then(location => {
-      console.log('Location  fetched successfully.');
+      console.log('Location fetched successfully.');
       this.location.lat = location.coords.latitude;
       this.location.lng = location.coords.longitude;
-      this.placesService.addPlace({title: newPlace.title, location: this.location});
+      this.placesService.addPlace({
+        title: newPlace.title,
+        description: newPlace.description,
+        location: this.location
+      });
       loader.dismiss();
       this.navCtrl.pop();
     })

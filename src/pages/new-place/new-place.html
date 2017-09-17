@@ -12,6 +12,10 @@
           <ion-label fixed>Title</ion-label>
           <ion-input name="title" type="text" ngModel required></ion-input>
         </ion-item>
+        <ion-item>
+          <ion-label stacked>Description</ion-label>
+          <ion-textarea name="description" ngModel></ion-textarea>
+        </ion-item>
       </ion-list>
       <button ion-button block type="submit" [disabled]="!f.valid">Add Place</button>
     </form>

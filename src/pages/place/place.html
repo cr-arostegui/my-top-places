@@ -1,15 +1,16 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ title }}</ion-title>
+    <ion-title>{{ currentPlace.title }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="20">
-    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  <agm-map [latitude]="currentPlace.location.lat" [longitude]="currentPlace.location.lng" [zoom]="20">
+    <agm-marker [latitude]="currentPlace.location.lat" [longitude]="currentPlace.location.lng"></agm-marker>
   </agm-map>
+  <p>{{ currentPlace.description }}</p>
   <button ion-button block (click)="onDismiss()">Dismiss</button>
 </ion-content>

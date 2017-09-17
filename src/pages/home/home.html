@@ -5,6 +5,11 @@
           <ion-icon name="add"></ion-icon>
         </button>
     </ion-buttons>
+    <ion-buttons start>
+        <button ion-button icon-only (click)="onShowInfo()">
+          <ion-icon name="information"></ion-icon>
+        </button>
+    </ion-buttons>
     <ion-title>
       My Top Places
     </ion-title>
@@ -14,7 +19,7 @@
 <ion-content padding>
     <ion-list>
       <ion-item *ngFor="let place of places">
-        <p (click)="onOpenPlace(place)">{{ place.title }}</p>
+        <h2 (click)="onOpenPlace(place)">{{ place.title }}</h2>
         <button ion-button clear item-end icon-only (click)="onDeletePlace(place)">
             <ion-icon name="trash"></ion-icon>
         </button>

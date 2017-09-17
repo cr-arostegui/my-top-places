@@ -58,4 +58,13 @@ export class HomePage {
     });
     confirm.present();
   }
+
+  onShowInfo(){
+    let alert = this.alertCtrl.create({
+      title: 'Developed by',
+      subTitle: 'Cristhian Arostegui Enriquez',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
 }
