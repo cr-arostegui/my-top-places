@@ -15,11 +15,13 @@ export class PlacesService {
   }
 
   deletePlace(placeToDelete: Place){
-    this.storage.set('places', this.places.filter(place => {
-      if(JSON.stringify(placeToDelete) === JSON.stringify(place) ) {
+    this.places = this.places.filter(place => {
+      if(JSON.stringify(placeToDelete) !== JSON.stringify(place) ) {
         return place;
       }
-    }));
+    });
+    this.storage.set('places', this.places);
+    return this.places;
   }
 
   getPlaces(): Promise<Place[]>{

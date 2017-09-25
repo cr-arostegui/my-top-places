@@ -50,8 +50,7 @@ export class HomePage {
         {
           text: 'Agree',
           handler: () => {        
-            this.placeService.deletePlace(place);
-            this.ionViewWillEnter();
+            this.places = this.placeService.deletePlace(place);
           }
         }
       ]
@@ -62,7 +61,7 @@ export class HomePage {
   onShowInfo(){
     let alert = this.alertCtrl.create({
       title: 'Developed by',
-      subTitle: 'Cristhian Arostegui Enriquez',
+      subTitle: 'Cristhian Arostegui',
       buttons: ['OK']
     });
     alert.present();

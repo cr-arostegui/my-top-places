@@ -23,7 +23,7 @@ export class NewPlacePage {
     let loader = this.loadingCtrl.create({
       content: "Please wait...",
     });
-    loader.present();
+    //loader.present();
     this.geolocation.getCurrentPosition()
     .then(location => {
       console.log('Location fetched successfully.');
@@ -34,9 +34,18 @@ export class NewPlacePage {
         description: newPlace.description,
         location: this.location
       });
-      loader.dismiss();
+      //loader.dismiss();
       this.navCtrl.pop();
     })
-    .catch(() => console.log('An error ocurred'));
+    .catch(() => {
+      this.placesService.addPlace({
+        title: newPlace.title,
+        description: newPlace.description,
+        location: this.location
+      });
+      console.log('Location could not fetched.');
+      //loader.dismiss();
+      this.navCtrl.pop();
+    });
   }
 }
