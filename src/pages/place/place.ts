@@ -15,7 +15,10 @@ export class PlacePage {
     private viewCtrl: ViewController,
     private navParms: NavParams
   ) {
-    this.currentPlace = this.navParms.data;
+    this.currentPlace = { title: '' };
+    this.currentPlace.title = this.navParms.data.title;
+    this.currentPlace.description = this.navParms.data.description;
+    this.currentPlace.location = this.navParms.data.location;
   }
 
   onDismiss(){

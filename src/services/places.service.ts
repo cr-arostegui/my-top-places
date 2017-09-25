@@ -16,7 +16,7 @@ export class PlacesService {
 
   deletePlace(placeToDelete: Place){
     this.places = this.places.filter(place => {
-      if(JSON.stringify(placeToDelete) !== JSON.stringify(place) ) {
+      if(placeToDelete.title !== place.title ) {
         return place;
       }
     });
